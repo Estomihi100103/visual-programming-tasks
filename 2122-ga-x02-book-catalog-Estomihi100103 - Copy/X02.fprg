@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="pcip3"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-12-13 04:36:07 PM"/>
+        <attribute name="created" value="cGNpcDM7REVTS1RPUC1RSEcwOUJSOzIwMjEtMTItMTM7MDE6MTk6MTggUE07MjgxNQ=="/>
+        <attribute name="edited" value="cGNpcDM7REVTS1RPUC1RSEcwOUJSOzIwMjEtMTItMTM7MDI6MDc6NDIgUE07MTsyOTE4"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtVkE5NlFVREQ7MjAyMS0xMi0xMzswMi4xNy40NSBQTTsxOzI3NDg="/>
+        <attribute name="edited" value="UGVyc29uYWw7REVTS1RPUC1PVlAwOFZNOzIwMjEtMTItMTM7MDQ6MzY6MDcgUE07MjszMzE2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="myISBN" type="String" array="True" size="10"/>
+            <declare name="myPrice" type="Real" array="True" size="5"/>
+            <declare name="myQuantity" type="Integer" array="True" size="5"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="currentPrice" type="Real" array="False" size=""/>
+            <assign variable="currentPrice" expression="0"/>
+            <declare name="totPrice" type="Real" array="False" size=""/>
+            <assign variable="totPrice" expression="0"/>
+            <for variable="i" start="0" end="9" direction="inc" step="1">
+                <input variable="myISBN[i]"/>
+                <if expression="myISBN[i]=&quot;---&quot;">
+                    <then>
+                        <assign variable="i" expression="9"/>
+                    </then>
+                    <else>
+                        <if expression="i&gt;4">
+                            <then>
+                                <if expression="myISBN[i]=myISBN[0]">
+                                    <then>
+                                        <input variable="myQuantity[0]"/>
+                                        <assign variable="currentPrice" expression="myPrice[0]*myQuantity[0]"/>
+                                    </then>
+                                    <else>
+                                        <if expression="myISBN[i]=myISBN[1]">
+                                            <then>
+                                                <input variable="myQuantity[1]"/>
+                                                <assign variable="currentPrice" expression="myPrice[1]*myQuantity[1]"/>
+                                            </then>
+                                            <else>
+                                                <if expression="myISBN[i]=myISBN[2]">
+                                                    <then>
+                                                        <input variable="myQuantity[2]"/>
+                                                        <assign variable="currentPrice" expression="myPrice[2]*myQuantity[2]"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="myISBN[i]=myISBN[3]">
+                                                            <then>
+                                                                <input variable="myQuantity[3]"/>
+                                                                <assign variable="currentPrice" expression="myPrice[3]*myQuantity[3]"/>
+                                                            </then>
+                                                            <else>
+                                                                <if expression="myISBN[i]=myISBN[4]">
+                                                                    <then>
+                                                                        <input variable="myQuantity[4]"/>
+                                                                        <assign variable="currentPrice" expression="myPrice[4]*myQuantity[4]"/>
+                                                                    </then>
+                                                                    <else/>
+                                                                </if>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <input variable="myPrice[i]"/>
+                            </else>
+                        </if>
+                        <assign variable="totPrice" expression="totPrice + currentPrice"/>
+                    </else>
+                </if>
+            </for>
+            <output expression="ToFixed(totPrice, 2)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
