@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Personal"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-10-11 05:04:53 PM"/>
+        <attribute name="created" value="UGVyc29uYWw7REVTS1RPUC1PVlAwOFZNOzIwMjEtMTAtMTE7MDI6MTg6NTIgUE07MzIwMQ=="/>
+        <attribute name="edited" value="UGVyc29uYWw7REVTS1RPUC1PVlAwOFZNOzIwMjEtMTAtMTE7MDU6MDQ6NTMgUE07MzszMzEw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="isbn" type="String" array="False" size=""/>
+            <declare name="price" type="Real" array="False" size=""/>
+            <declare name="quantity" type="Integer" array="False" size=""/>
+            <declare name="totaltransaksi" type="Real" array="False" size=""/>
+            <assign variable="totaltransaksi" expression="0"/>
+            <do expression="isbn!=&quot;---&quot;">
+                <input variable="isbn"/>
+                <if expression="isbn!=&quot;---&quot;">
+                    <then>
+                        <input variable="price"/>
+                        <input variable="quantity"/>
+                        <assign variable="totaltransaksi" expression="(price*quantity)+totaltransaksi"/>
+                    </then>
+                    <else>
+                        <output expression="ToFixed(totaltransaksi,2)" newline="True"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
