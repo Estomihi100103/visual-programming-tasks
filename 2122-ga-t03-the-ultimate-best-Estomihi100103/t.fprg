@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Personal"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-07-31 02:11:16 AM"/>
+        <attribute name="created" value="UGVyc29uYWw7REVTS1RPUC1PVlAwOFZNOzIwMjItMDctMzE7MDE6MTc6MDggQU07MzE5NA=="/>
+        <attribute name="edited" value="UGVyc29uYWw7REVTS1RPUC1PVlAwOFZNOzIwMjItMDctMzE7MDI6MTE6MTYgQU07MTszMjk2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="diskon" type="Real" array="False" size=""/>
+            <declare name="tahunterbit, stok" type="Integer" array="False" size=""/>
+            <declare name="isbn, judul, penulis, penerbit, formatbuku" type="String" array="False" size=""/>
+            <declare name="hargapembelian, minimummargin, rating" type="Real" array="False" size=""/>
+            <do expression="isbn!= &quot;---&quot;">
+                <input variable="isbn"/>
+                <if expression="isbn==&quot;---&quot;">
+                    <then/>
+                    <else>
+                        <input variable="judul"/>
+                        <input variable="penulis"/>
+                        <input variable="tahunterbit"/>
+                        <input variable="penerbit"/>
+                        <input variable="formatbuku"/>
+                        <input variable="hargapembelian"/>
+                        <input variable="minimummargin"/>
+                        <input variable="stok"/>
+                        <input variable="rating"/>
+                        <output expression="isbn&amp;&quot;|&quot;&amp;judul&amp;&quot;|&quot;&amp;penulis&amp;&quot;|&quot;&amp;tahunterbit&amp;&quot;|&quot;&amp;penerbit&amp;&quot;|&quot;&amp;formatbuku&amp;&quot;|&quot;&amp;hargapembelian&amp;&quot;|&quot;&amp;minimummargin&amp;&quot;|&quot;&amp;stok&amp;&quot;|&quot;&amp;rating&amp;&quot;|&quot;" newline="False"/>
+                        <if expression="rating&gt;4.7">
+                            <then>
+                                <output expression="&quot;Best Pick&quot;" newline="False"/>
+                            </then>
+                            <else>
+                                <if expression="rating&gt;=4.5">
+                                    <then>
+                                        <output expression="&quot;Must Read&quot;" newline="False"/>
+                                    </then>
+                                    <else>
+                                        <if expression="rating&gt;=4.0">
+                                            <then>
+                                                <output expression="&quot;Recommended&quot;" newline="False"/>
+                                            </then>
+                                            <else>
+                                                <if expression="rating&gt;=3.0">
+                                                    <then>
+                                                        <output expression="&quot;Average&quot;" newline="False"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="rating&lt;3.0">
+                                                            <then>
+                                                                <output expression="&quot;Low&quot;" newline="False"/>
+                                                            </then>
+                                                            <else/>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                        <assign variable="diskon" expression="minimummargin*100/hargapembelian-1"/>
+                        <if expression="minimummargin&gt;0">
+                            <then>
+                                <output expression="&quot;|---&quot;" newline="False"/>
+                            </then>
+                            <else>
+                                <if expression="diskon&gt;40.00">
+                                    <then>
+                                        <output expression="&quot;|Once in a lifetime&quot;" newline="False"/>
+                                    </then>
+                                    <else>
+                                        <if expression="diskon&gt;20.00">
+                                            <then>
+                                                <if expression="diskon&lt;=40.00">
+                                                    <then>
+                                                        <output expression="&quot;|Never come twice&quot;" newline="False"/>
+                                                    </then>
+                                                    <else/>
+                                                </if>
+                                            </then>
+                                            <else>
+                                                <if expression="diskon&lt;=20.00">
+                                                    <then>
+                                                        <output expression="&quot;|No regret&quot;" newline="False"/>
+                                                    </then>
+                                                    <else/>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
