@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Personal"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-11-17 03:09:12 PM"/>
+        <attribute name="created" value="UGVyc29uYWw7REVTS1RPUC1PVlAwOFZNOzIwMjEtMTEtMTc7MDI6MjM6NTIgUE07MzIwNA=="/>
+        <attribute name="edited" value="UGVyc29uYWw7REVTS1RPUC1PVlAwOFZNOzIwMjEtMTEtMTc7MDM6MDk6MTIgUE07NjszMzE4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="palidrom" type="Boolean" array="False" size=""/>
+            <declare name="huruf" type="String" array="False" size=""/>
+            <input variable="huruf"/>
+            <assign variable="palidrom" expression="true"/>
+            <assign variable="i" expression="0"/>
+            <while expression="i&lt;=len(huruf)/2-1 and palidrom=true">
+                <if expression="char(huruf,i) &lt;&gt; char(huruf,len(huruf)-i-1)">
+                    <then>
+                        <assign variable="palidrom" expression="false"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <if expression="palidrom=true">
+                <then>
+                    <output expression="&quot;YA&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;BUKAN&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
